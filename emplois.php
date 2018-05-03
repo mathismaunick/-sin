@@ -3,7 +3,6 @@
 <head>
 	<title>Emlois</title>
 	<link href="page.css" rel="stylesheet" type="text/css">
-
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="bootstrap.min.css">
  	<link rel="stylesheet" href="style.css">
@@ -47,11 +46,14 @@
 
 					if ($result->num_rows > 0) 
 					{
+						echo "<div class='trait'></div>
+							</p>";
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) /*tant que les resultats sont bons on le fait*/
 					    {
 
 					        $description=$row["description"];
+
 					        echo"
 					        <div class='un_emploi'>
 

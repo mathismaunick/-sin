@@ -1,4 +1,33 @@
 
+
+/*--------------------------general------------------------------*/
+
+body
+{
+  background-image: url('images/imagefont_flamands.jpg');
+  background-size: 50%;
+}
+.contenu_global /*ce qui a dans la page */
+{
+
+
+  height: 100%;
+  /*le padding*/
+  padding-right: 10%;
+  padding-left:10%;
+  padding-top:5%;
+  padding-bottom:5%; 
+  /*le margin*/
+  margin-left:7%;
+  margin-right:7%;
+  margin-top:0%;/*collé a la barre du haut*/
+  margin-bottom:0%; 
+  background-color: rgb(250, 240, 230,0.90) ;
+
+  
+}
+
+
 /*--------------------------connecion------------------------------*/
 
 .Roze /*ce qui a dans la page */
@@ -19,16 +48,141 @@ p /*les paragrapes sont en garamond aussi*/
 
 .conn
 {
+	margin-left: 25%;
+	margin-top: 10%;
 	width: 50%;
-	margin: auto;
-	border: solid 3px rgb(50,50,50);
-	background-color: #B0C4DE;
+
+	border: solid 2px rgb(50,50,50);
+	background-color: rgb(100, 100, 100,0.80);
 }
 .btn_vert
+ {
+	border:none;
+	padding:6px 5px 6px 5px;
+	border-radius:8px;
+	background:#008000;
+	font:bold 13px Garamond;
+	color:#fff;
+}
+.btn_gris
+ {
+ 	position: ;
+	border:none;
+	padding:6px 5px 6px 5px;
+	border-radius:8px;
+	background:#444444;
+	font:bold 13px Garamond;
+	color:#fff;
+
+
+
+}
+
+/*--------------------------emplois------------------------------*/
+
+.centre
 {
-	color:#7CFC00;
+	text-align: center;
+	width: 50%;
+	margin: auto;
+}
+
+.paragraphe-droit
+{
+  text-align: center;
+  padding-left: 50%;
+  position: relative;
+  float:right;
+}
+
+.trait
+{
+  border-bottom: 1px solid #000;
+  width : 30%;
+}
+
+.imagedroite
+{
+    float:right;
+    border: solid 2px  rgb(254, 253, 240);
+    height: 20%;
+    width: 20%;
+}
+
+/*--------------------------VOUS------------------------------*/
+.taille1
+{
+	font-size: 18px;
 }
 
 
-/*--------------------------creation de compte------------------------------*/
+/*--------------------------ACCUEIL------------------------------*/
 
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 2;
+    top: 70px;
+    left: 0;
+    background: #FFFFFF;
+    overflow-x: hidden;
+
+}
+
+.sidenav form {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    background-image: url('images/imagefont_flamands.jpg');
+  	background-size: 100%;
+    display: block;
+    padding-left: 18%;
+}
+
+.btn_rond {
+	width:85px;
+	height:85px;
+	background:#F899E9;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Garamond;
+	border-radius:100%;
+	color:#555;
+}
+.btn_rond:hover{
+	width:85px;
+	height:85px;
+	background:#F859B7;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Garamond;
+	border-radius:100%;
+	color:#555;
+}
+
+.contenu_actualite /*ce qui a dans la page */
+{
+  height: 100%;
+  background-color: #E0E0E0 ;
+  /*le padding*/
+  padding-right: 25%;
+  padding-left:25%;
+  padding-top:5%;
+  padding-bottom:5%; 
+}
+
+.publication
+{
+	border-radius: 8px;
+	border: solid 2px #AAAAAA;
+	background-color:#FEFEFE; 
+	padding-top: 2%;
+	padding-bottom:2% ;
+	padding-left: 4%;
+	padding-right:4%; 
+}
+
+.publication img
+{
+    height: 70%;
+    width: 70%;
+}

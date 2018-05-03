@@ -8,12 +8,11 @@ session_start();
 
 // connexion a mysql
  /*$conn = new mysqli("176.128.237.105", "tom", "tom", "residence-des-bains");*/
-$conn = new mysqli("localhost", "tom","tom", "piscine");
+$conn = new mysqli("localhost", "root","", "piscine");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error());
 }
-
 
 $sql = "SELECT idMembre FROM membre WHERE Mail='$Mail' AND mdp='$mdp'";
 $result = $conn->query($sql);
@@ -26,9 +25,9 @@ if ($result->num_rows > 0)
     {
 
         $id=$row["idMembre"];
-
+        $_SESSION['id'] = $id;
         ///place ton code d'execution
-        header('Location: vous.php?='.$id);
+        header('Location: vous.php?id='.$id);
 
     }
 } 

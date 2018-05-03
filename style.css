@@ -8,15 +8,18 @@ body, html {
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Garamond', sans-serif;
 }
 
 a,a:hover{
   text-decoration: none;
+
 }
 
 .container-fluid{
+
   padding: 0;
+
 }
 
 .separator{
@@ -31,6 +34,9 @@ a,a:hover{
   background-color: #E839A7;
   height: 70px;
   line-height: 70px;
+      position: fixed;
+    top: 0;
+    width: 100%;
 }
 .logo,.logo:hover{
   color:#ffffff;
