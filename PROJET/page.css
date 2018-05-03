@@ -1,0 +1,34 @@
+
+/*--------------------------connecion------------------------------*/
+
+.Roze /*ce qui a dans la page */
+{
+  color: #FF1493;
+  font-family: Garamond, serif;
+  font-size: 30px;
+}
+.contenu
+{
+	margin-left: 25%;
+}
+
+p /*les paragrapes sont en garamond aussi*/
+{
+	font-family: Garamond,serif;
+}
+
+.conn
+{
+	width: 50%;
+	margin: auto;
+	border: solid 3px rgb(50,50,50);
+	background-color: #B0C4DE;
+}
+.btn_vert
+{
+	color:#7CFC00;
+}
+
+
+/*--------------------------creation de compte------------------------------*/
+
