@@ -1,0 +1,21 @@
+
+nav ul{
+  background-color: #333333;
+}
+
+nav li{
+
+  display:inline-block;
+  width:100px;
+  height:40px;
+}
+
+nav li :hover{
+  background-color: #3388BB;
+}
+
+nav li a{
+  display: black;
+  text-decoration: none;
+  color:#FFFACD;
+}

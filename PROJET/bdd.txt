@@ -1,0 +1,46 @@
+table membre : 
+idAdmin mail nom pseudo mdp photo
+
+Admin:
+identifiant (membre) num 
+
+Auteur:
+identifiant(membre) num  idphoto
+
+Info:
+identifiant(membre) sexe ecole nbamis age ville ...
+
+publication:
+Idpublication type IdMembre
+
+photos:
+idphoto despricption date/heure lieu idcom
+
+Videos:
+IdVideo despricption date/heure lieu
+
+Evenement:
+IdEvent Text date/lieu Heure
+
+Commentaire:
+idcommentaire description idpublication idcommAmi Heure
+
+Like:
+IdLike IdType IdpersonneDuquilike Idheure
+
+Partager:
+IdPartag IdpersonneDuquilike Idheure
+
+///
+CV:
+IdCv IdMembre Text
+
+Amis:
+IdMembre IdMembre
+
+Notification:
+IdNotif DateOuverture 
+
+Emplois:
+IdEmplois Idmembre description 
+
