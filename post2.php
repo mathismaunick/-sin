@@ -1,10 +1,9 @@
 <?php
 
 	include ('Co.php');
-	$Texte=$_POST['Texte'];
-    $DateEvent= $_POST['DateEvent'];
-    $lieu= $_POST['lieu'];
-    $type=1;
+
+	$description=$_POST['description'];
+    $type=4;
     $date = new DateTime();
     $datePublication=$date->format('Y-m-d H:i:s');
 
@@ -14,7 +13,7 @@
 	$req->execute(array(
 		'idMembre' => $id,
 		'type' => $type,
-		'datePublication' => $datePublication
+		'datePublication'=> $datePublication
 	  ));
 
 	$reponse = $bdd->query('SELECT idPublication FROM publication');
@@ -24,12 +23,10 @@
 	}
 
     //On ajoute un evenement 
-	$requete = $bdd->prepare('INSERT INTO evenement (Texte,DateEvent,lieu,idPublication) VALUES(:Texte,:DateEvent,:lieu,:idPublication)');
+	$requete = $bdd->prepare('INSERT INTO post (description,idPublication) VALUES(:description,:idPublication)');
 
 	$requete->execute(array(
-	  'Texte' => $Texte,
-  	  'DateEvent' => $DateEvent,
-  	  'lieu' => $lieu,
+	  'description' => $description,
   	  'idPublication' => $idPublication
 	  ));
 

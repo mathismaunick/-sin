@@ -4,7 +4,7 @@
 <!--  head -->
     <head>
         <meta charset="utf-8">
-        <title> ROZE </title>
+        <title> Accueil </title>
             <link href="page.css" rel="stylesheet" type="text/css">
             <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
             <link rel="stylesheet" href="bootstrap.min.css">
@@ -23,9 +23,9 @@
         <a href="Accueil.php"> Accueil </a>
         <a href="reseau.php"> Réseau </a>
         <a href="emplois.php"> Emplois </a>
-        <a href="messagerie.php"> Messagerie </a>
         <a href="notification.php"> Notification </a>
         <a href="Vous.php"> Vous </a>
+        <a href="deconnexion.php"><img src="images/logout1.PNG"> </a>
       </nav>
     </div>
   </header>
@@ -59,6 +59,7 @@ $reponse = $bdd->query('SELECT * FROM publication ORDER BY datePublication DESC'
 
 while ($donnees = $reponse->fetch())
 {
+  echo "<div class='publication'>";
 
   $prenom = $bdd->query('SELECT Pseudo FROM membre WHERE idMembre=\'' . $donnees['idMembre'] . '\'');
   $idPublication= $donnees['idPublication'];
@@ -70,20 +71,15 @@ while ($donnees = $reponse->fetch())
   echo ' le '.$donnees['datePublication']. ': <br />';
 
 
-
-
-
-
   if($donnees['type']==1)/*evenement*/
   {
 
     $evenement = $bdd->query('SELECT * FROM evenement WHERE idpublication=\'' . $donnees['idPublication'] . '\'');
 
     $infos = $evenement->fetch();
-    echo "<div class='publication'>";
+    
       echo 'Date de l\'evenement: <b>'.$infos['DateEvent']. '</b><br> lieu: <b>'.$infos['lieu'].'</b><br> description: <b>'.$infos['Texte']. '</b><br />';
-      echo "</div>";
-
+      
     
   }
 
@@ -91,26 +87,74 @@ while ($donnees = $reponse->fetch())
   if($donnees['type']==2)/*photo*/
   {
 
-    $photos = $bdd->query('SELECT *FROM photos INNER JOIN publication ON photos.idPublication = publication.idPublication  where idMembre=\'' . $donnees['idMembre'] . '\'');
+    $photos = $bdd->query('SELECT *FROM photos INNER JOIN publication ON photos.idPublication = \'' . $idPublication. '\'  where idMembre=\'' . $donnees['idMembre'] . '\'');
 
     $infosphoto = $photos->fetch();
-    
-      echo "<div class='publication'>";
+    ?>
+      <div id="content">
+  <?php
+
             echo 'Le lieu de evenement est '.$infosphoto['lieu']. '<br />';
         echo "<div id='img_div'>";
             echo "<img src='images/".$infosphoto['lien']."' >";
             echo "<p> Description de l'evenement: <b>".$infosphoto['Description']."</b></p>";
         echo "</div>";
-      echo "</div>";
+        ?>
+      <form method="POST" action="supprimerImage.php" enctype="multipart/form-data">
+      <input type="hidden" name="suppr" value="<?php echo $idPublication ?>">
+        <div>
 
+          <button type="submit" name="supprimer" value="<?php echo $infosphoto['idPhoto'] ?>">Supprimer</button>
+        </div>
+      </form>
+      <form method="POST" action="modifierImage.php" enctype="multipart/form-data">
+
+        <div>
+
+          <button type="submit" name="modifier" value="<?php echo $infosphoto['idPhoto'] ?>">Modifier</button>
+        </div>
+      </form>
+    <?php
     
   }
 
   if($donnees['type']==3)/*video*/
   {
+    $video = $bdd->query('SELECT * FROM video INNER JOIN publication ON video.idPublication = \'' . $idPublication. '\'  where idMembre=\'' . $donnees['idMembre'] . '\'');
 
-    echo "<div class='publication'>";
-    echo "</div>";
+        ?>
+  <div id="content">
+
+    <?php
+
+    $infosvideo = $video->fetch();
+
+      echo "<video controls='controls'>";
+      echo "<source src='video/".$infosvideo['lien']."' type='video/mp4'/>";
+      echo "<source src='video/".$infosvideo['lien']."' type='video/webm'/>";
+      echo "<source src='video/".$infosvideo['lien']."' type='video/ogg'/>";
+      echo "</video>";
+       echo "<p>".$infosvideo['Description']."</p>";
+      echo "</div>";
+
+                    ?>
+
+      <form method="POST" action="supprimerVideo.php" enctype="multipart/form-data">
+      <input type="hidden" name="suppr" value="<?php echo $infosvideo['idPublication'] ?>">
+        <div>
+
+          <button type="submit" name="supprimer" value="<?php echo $infosvideo['idVideo'] ?>">Supprimer</button>
+        </div>
+      </form>
+      <form method="POST" action="modifierVideo.php" enctype="multipart/form-data">
+
+        <div>
+
+          <button type="submit" name="modifier" value="<?php echo $infosvideo['idVideo'] ?>">Modifier</button>
+        </div>
+      </form>
+
+    <?php
 
   }
 
@@ -121,26 +165,46 @@ while ($donnees = $reponse->fetch())
 
     $infospost = $post->fetch();
     
-    echo "<div class='publication'>";
-      echo 'la date de evenement est '.$infospost['description']. '<br />';
-      echo "</div>";
+    
+      echo 'la description est '.$infospost['description']. '<br />';
+      
 
   }
 
+$comment = $bdd->query('SELECT * FROM commentaire WHERE idPubli=\'' . $donnees['idPublication'] . '\'');
+ 
 
+ echo "<div class='groupe_com'>";
+  while ($idComAmi = $comment->fetch())
+  {
+    echo "<div class='commentaire'>";
+      
+      $commentaire= $bdd->query('SELECT Pseudo 
+      FROM membre
+      INNER JOIN commentaire
+      WHERE membre.idMembre =\'' . $idComAmi['idComAmi'] . '\' ');
+
+      $idComAmis = $commentaire->fetch();
+      echo "<b>".$idComAmis['Pseudo']. ': </b><br />';
+      echo $idComAmi['Description'];
+      echo "</div>";
+  }
+echo "</div>";
+echo "</div>";
 
 
 ?>
   <form action="like.php"  method="post">
 
-    <button type="submit" name="like" value="<?php echo $idPublication ?>">Liker</button>
+    <button type="submit" class="btn_vert" name="like" value="<?php echo $idPublication ?>"><?php echo $donnees['nbLike'] ?> Liker</button>
 
     </form>
 
     <form action="comment.php" method="post">
 
-      Commenter: <input type="text" name="Commenter"><br>
-      <input type="submit" value="Poster">
+      Commenter: <input type="text" name="Description"><br>
+      <button type="submit" class="btn_vert" name="commentaire" value="<?php echo $idPublication ?>">Commenter</button><br><br>
+
     </form>
 
 <?php

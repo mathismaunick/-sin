@@ -15,4 +15,6 @@ $req->execute(array(
 	'Ville' => $Ville
 	));
 
+header('Location:Vous.php')
+
 ?>

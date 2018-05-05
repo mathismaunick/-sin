@@ -19,9 +19,9 @@
         <a href="Accueil.php"> Accueil </a>
         <a href="reseau.php"> Réseau </a>
         <a href="emplois.php"> Emplois </a>
-        <a href="messagerie.php"> Messagerie </a>
         <a href="notification.php"> Notification </a>
         <a href="Vous.php"> Vous </a>
+        <a href="deconnexion.php"><img src="images/logout1.PNG"> </a>
       </nav>
     </div>
   </header>
@@ -30,23 +30,28 @@
 <br>
     <form action="modif1.php" class="list" method="post" >
 
-        Modifier son sexe: &nbsp;
-        <input type="text" name="Sexe" placeholder="<?php echo $Sexe ?> ">
-        <input type="submit" class="btn_vert" value="Modifier"><br /><br />
+        Modifier son sexe: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Sexe" placeholder="<?php echo $Sexe ?> "><br /><br />
+        
 
-      Modifier votre ville: &nbsp;
-        <input type="text" name="Ville" placeholder="<?php echo $Ville ?> ">&nbsp;
-        <input type="submit" class="btn_vert" value="Modifier"><br /><br />
+      Modifier votre ville: &nbsp;&nbsp;&nbsp;
+        <input type="text" name="Ville" placeholder="<?php echo $Ville ?> ">&nbsp;<br /><br />
+        
 
-        Modifier votre âge:&nbsp;
-        <input type="text" name="Age" placeholder="<?php echo $Age ?> ">&nbsp;
-        <input type="submit" class="btn_vert" value="Modifier"><br /><br />
+        Modifier votre âge:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Age" placeholder="<?php echo $Age ?> ">&nbsp;<br /><br />
+        
 
         Modifier votre Ecole:&nbsp;
         <input type="text" name="Ecole" placeholder="<?php echo $Ecole ?> ">&nbsp;
         <input type="submit" class="btn_vert" value="Modifier"><br /><br />
       
     </form>
+
+    
+
+
+
 </div>
 
 </body>

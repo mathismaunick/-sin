@@ -18,12 +18,13 @@
     <div class="container">
       <a class="logo">Roze</a>
       <nav class="menu">
-        <a href="Acceuil.php"> Acceuil </a>
+        <a href="Accueil.php"> Accueil </a>
         <a href="reseau.php"> Réseau </a>
         <a href="emplois.php"> Emplois </a>
-        <a href="messagerie.php"> Messagerie </a>
+        
         <a href="notification.php"> Notification </a>
         <a href="Vous.php"> Vous </a>
+        <a href="deconnexion.php"><img src="images/logout1.PNG"> </a>
       </nav>
     </div>
   </header>
@@ -35,33 +36,34 @@
 	
 				<?php 
 
-					$conn = new mysqli("localhost", "tom","tom", "piscine");
+					$conn = new mysqli("localhost", "root","", "piscine");
 					// Check connection
 					if ($conn->connect_error) {
 					    die("Connection failed: " . $conn->connect_error());
 					}
 
-					$sql =("SELECT description FROM emplois");
+					$sql =("SELECT * FROM emplois");
     				$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) 
 					{
-						echo "<div class='trait'></div>
-							</p>";
+						
 					    // output data of each row
 					    while($row = $result->fetch_assoc()) /*tant que les resultats sont bons on le fait*/
 					    {
 
-					        $description=$row["description"];
+					        $description=$row['description'];
+					        $image=$row['lien_photo'];
 
 					        echo"
-					        <div class='un_emploi'>
+					        <div class='publication'>
 
 							<p>
-							<!-- on met l'image ici -->
-							<!-- <img class='imagedroite' src='images/apt/apt5-2.jpg'> -->
+							
+							<img  src='images/".$image."'>
+							<br>
 							$description
-							<div class='trait'></div>
+							
 							</p>
 	
 							</div>";

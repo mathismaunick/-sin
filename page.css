@@ -13,14 +13,14 @@ body
 
   height: 100%;
   /*le padding*/
-  padding-right: 10%;
+  padding-right:10%;
   padding-left:10%;
   padding-top:5%;
   padding-bottom:5%; 
   /*le margin*/
   margin-left:7%;
   margin-right:7%;
-  margin-top:0%;/*collé a la barre du haut*/
+  margin-top:0%;   /*collé a la barre du haut*/
   margin-bottom:0%; 
   background-color: rgb(250, 240, 230,0.90) ;
 
@@ -35,6 +35,8 @@ body
   color: #FF1493;
   font-family: Garamond, serif;
   font-size: 30px;
+  text-align: center;
+
 }
 .contenu
 {
@@ -96,9 +98,11 @@ p /*les paragrapes sont en garamond aussi*/
 }
 
 .trait
-{
-  border-bottom: 1px solid #000;
-  width : 30%;
+{	
+  
+  margin: auto;
+  border-bottom: 2px solid #000;
+  width : 80%;
 }
 
 .imagedroite
@@ -176,13 +180,36 @@ p /*les paragrapes sont en garamond aussi*/
 	border: solid 2px #AAAAAA;
 	background-color:#FEFEFE; 
 	padding-top: 2%;
-	padding-bottom:2% ;
+	padding-bottom:2%;
 	padding-left: 4%;
 	padding-right:4%; 
+	margin-bottom: 2%;
 }
 
 .publication img
 {
-    height: 70%;
-    width: 70%;
+    height: 50%;
+    width: 50%;
+}
+
+.commentaire
+{
+
+	border-radius: 8px;
+	border: solid 2px #AAAAAA;
+	background-color:#87CEFA; 
+	padding-top: 2%;
+	padding-bottom:2%;
+	padding-left: 4%;
+	padding-right:4%; 
+	margin-bottom: 2%;
+
+}
+
+.photo_profil
+{
+	height: 100px;
+	width: 100px;
+	float: right;
+	padding-right: 20%;
 }
